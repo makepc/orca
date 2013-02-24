@@ -1,0 +1,33 @@
+<h1>Listing orcamentos</h1>
+
+<table>
+  <tr>
+    <th>Local</th>
+    <th>Descricao</th>
+    <th>Distancia</th>
+    <th>Cli nome</th>
+    <th>Cli morada</th>
+    <th>Cli contacto</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orcamentos.each do |orcamento| %>
+  <tr>
+    <td><%= orcamento.local %></td>
+    <td><%= orcamento.descricao %></td>
+    <td><%= orcamento.distancia %></td>
+    <td><%= orcamento.cli_nome %></td>
+    <td><%= orcamento.cli_morada %></td>
+    <td><%= orcamento.cli_contacto %></td>
+    <td><%= link_to 'Show', orcamento %></td>
+    <td><%= link_to 'Edit', edit_orcamento_path(orcamento) %></td>
+    <td><%= link_to 'Destroy', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Orcamento', new_orcamento_path %>

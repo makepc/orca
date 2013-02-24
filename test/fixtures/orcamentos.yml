@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  local: MyString
+  descricao: MyText
+  distancia: 9.99
+  cli_nome: MyString
+  cli_morada: MyText
+  cli_contacto: 9.99
+
+two:
+  local: MyString
+  descricao: MyText
+  distancia: 9.99
+  cli_nome: MyString
+  cli_morada: MyText
+  cli_contacto: 9.99

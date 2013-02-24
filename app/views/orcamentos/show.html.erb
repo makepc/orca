@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Local:</b>
+  <%= @orcamento.local %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @orcamento.descricao %>
+</p>
+
+<p>
+  <b>Distancia:</b>
+  <%= @orcamento.distancia %>
+</p>
+
+<p>
+  <b>Cli nome:</b>
+  <%= @orcamento.cli_nome %>
+</p>
+
+<p>
+  <b>Cli morada:</b>
+  <%= @orcamento.cli_morada %>
+</p>
+
+<p>
+  <b>Cli contacto:</b>
+  <%= @orcamento.cli_contacto %>
+</p>
+
+
+<%= link_to 'Edit', edit_orcamento_path(@orcamento) %> |
+<%= link_to 'Back', orcamentos_path %>
