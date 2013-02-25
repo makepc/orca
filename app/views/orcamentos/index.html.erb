@@ -1,33 +1,46 @@
-<h1>Listing orcamentos</h1>
-
-<table>
-  <tr>
-    <th>Local</th>
-    <th>Descricao</th>
-    <th>Distancia</th>
-    <th>Cli nome</th>
-    <th>Cli morada</th>
-    <th>Cli contacto</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @orcamentos.each do |orcamento| %>
-  <tr>
-    <td><%= orcamento.local %></td>
-    <td><%= orcamento.descricao %></td>
-    <td><%= orcamento.distancia %></td>
-    <td><%= orcamento.cli_nome %></td>
-    <td><%= orcamento.cli_morada %></td>
-    <td><%= orcamento.cli_contacto %></td>
-    <td><%= link_to 'Show', orcamento %></td>
-    <td><%= link_to 'Edit', edit_orcamento_path(orcamento) %></td>
-    <td><%= link_to 'Destroy', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Orcamento -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:local) %></th>
+      <th><%= model_class.human_attribute_name(:descricao) %></th>
+      <th><%= model_class.human_attribute_name(:distancia) %></th>
+      <th><%= model_class.human_attribute_name(:cli_nome) %></th>
+      <th><%= model_class.human_attribute_name(:cli_morada) %></th>
+      <th><%= model_class.human_attribute_name(:cli_contacto) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orcamentos.each do |orcamento| %>
+      <tr>
+        <td><%= link_to orcamento.id, orcamento_path(orcamento) %></td>
+        <td><%= orcamento.local %></td>
+        <td><%= orcamento.descricao %></td>
+        <td><%= orcamento.distancia %></td>
+        <td><%= orcamento.cli_nome %></td>
+        <td><%= orcamento.cli_morada %></td>
+        <td><%= orcamento.cli_contacto %></td>
+        <td><%=l orcamento.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_orcamento_path(orcamento), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      orcamento_path(orcamento),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Orcamento', new_orcamento_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_orcamento_path,
+            :class => 'btn btn-primary' %>

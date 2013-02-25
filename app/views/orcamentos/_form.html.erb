@@ -1,41 +1,44 @@
-<%= form_for(@orcamento) do |f| %>
-  <% if @orcamento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
-
-      <ul>
-      <% @orcamento.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @orcamento, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :local, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :local, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :descricao, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :descricao, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :distancia, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :distancia, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cli_nome, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cli_nome, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cli_morada, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :cli_morada, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cli_contacto, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cli_contacto, :class => 'number_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :local %><br />
-    <%= f.text_field :local %>
-  </div>
-  <div class="field">
-    <%= f.label :descricao %><br />
-    <%= f.text_area :descricao %>
-  </div>
-  <div class="field">
-    <%= f.label :distancia %><br />
-    <%= f.text_field :distancia %>
-  </div>
-  <div class="field">
-    <%= f.label :cli_nome %><br />
-    <%= f.text_field :cli_nome %>
-  </div>
-  <div class="field">
-    <%= f.label :cli_morada %><br />
-    <%= f.text_area :cli_morada %>
-  </div>
-  <div class="field">
-    <%= f.label :cli_contacto %><br />
-    <%= f.text_field :cli_contacto %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                orcamentos_path, :class => 'btn' %>
   </div>
 <% end %>

@@ -1,35 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Orcamento -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Local:</b>
-  <%= @orcamento.local %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:local) %>:</strong></dt>
+  <dd><%= @orcamento.local %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descricao) %>:</strong></dt>
+  <dd><%= @orcamento.descricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:distancia) %>:</strong></dt>
+  <dd><%= @orcamento.distancia %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cli_nome) %>:</strong></dt>
+  <dd><%= @orcamento.cli_nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cli_morada) %>:</strong></dt>
+  <dd><%= @orcamento.cli_morada %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cli_contacto) %>:</strong></dt>
+  <dd><%= @orcamento.cli_contacto %></dd>
+</dl>
 
-<p>
-  <b>Descricao:</b>
-  <%= @orcamento.descricao %>
-</p>
-
-<p>
-  <b>Distancia:</b>
-  <%= @orcamento.distancia %>
-</p>
-
-<p>
-  <b>Cli nome:</b>
-  <%= @orcamento.cli_nome %>
-</p>
-
-<p>
-  <b>Cli morada:</b>
-  <%= @orcamento.cli_morada %>
-</p>
-
-<p>
-  <b>Cli contacto:</b>
-  <%= @orcamento.cli_contacto %>
-</p>
-
-
-<%= link_to 'Edit', edit_orcamento_path(@orcamento) %> |
-<%= link_to 'Back', orcamentos_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              orcamentos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_orcamento_path(@orcamento), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              orcamento_path(@orcamento),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
