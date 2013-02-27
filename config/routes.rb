@@ -1,5 +1,8 @@
 Orca::Application.routes.draw do
+  devise_for :users
+
   resources :orcamentos
+  root :to => "orcamentos#index"
 
 
   # The priority is based upon order of creation:
