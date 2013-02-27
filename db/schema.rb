@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227164145) do
+ActiveRecord::Schema.define(:version => 20130227173701) do
 
   create_table "orca", :force => true do |t|
   end
@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(:version => 20130227164145) do
     t.decimal  "cli_contacto", :precision => 10, :scale => 0, :null => false
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
+    t.integer  "user_id"
   end
+
+  add_index "orcamentos", ["user_id"], :name => "index_orcamentos_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "nome"
