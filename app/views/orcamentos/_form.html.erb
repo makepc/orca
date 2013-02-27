@@ -1,44 +1,17 @@
-<%= form_for @orcamento, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :local, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :local, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :descricao, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :descricao, :class => 'text_area' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :distancia, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :distancia, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cli_nome, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :cli_nome, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cli_morada, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :cli_morada, :class => 'text_area' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cli_contacto, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :cli_contacto, :class => 'number_field' %>
-    </div>
-  </div>
+<%= simple_form_for @orcamento, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                orcamentos_path, :class => 'btn' %>
-  </div>
+    <%= f.input :local %>
+    <%= f.input :descricao %>
+    <%= f.input :distancia %>    
+    <%= f.input :cli_nome %>
+    <%= f.input :cli_morada %>
+    <%= f.input :cli_contacto %>  
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  orcamentos_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>
