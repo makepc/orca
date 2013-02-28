@@ -5,8 +5,7 @@ Orca::Application.routes.draw do
 
   resources :orcamentos
   root :to => "orcamentos#index"
-
-  get '/:id', to: 'perfil#show'
+  get 'user/:id', to: 'perfil#show', :as => 'perfil'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

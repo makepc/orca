@@ -27,7 +27,7 @@
         <td><%= orcamento.cli_nome %></td>
         <td><%= orcamento.cli_morada %></td>
         <td><%= orcamento.cli_contacto %></td>
-        <td><%=l orcamento.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= orcamento.created_at.strftime("%d/%m/%Y") %></td>
         <% if user_signed_in? %>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
