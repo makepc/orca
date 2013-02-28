@@ -1,4 +1,6 @@
 class OrcamentosController < ApplicationController
+  before_filter :login_required
+  
   # GET /orcamentos
   # GET /orcamentos.json
   def index
