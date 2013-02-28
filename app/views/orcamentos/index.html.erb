@@ -5,14 +5,14 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:local) %></th>
-      <th><%= model_class.human_attribute_name(:descricao) %></th>
-      <th><%= model_class.human_attribute_name(:distancia) %></th>
-      <th><%= model_class.human_attribute_name(:cli_nome) %></th>
-      <th><%= model_class.human_attribute_name(:cli_morada) %></th>
-      <th><%= model_class.human_attribute_name(:cli_contacto) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>ID</th>
+      <th>Local</th>
+      <th>Descrição</th>
+      <th>Distância</th>
+      <th>Cliente</th>
+      <th>Morada</th>
+      <th>Contacto</th>
+      <th>Data</th>
       <% if user_signed_in? %>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       <% end %>  
@@ -28,7 +28,7 @@
         <td><%= orcamento.cli_nome %></td>
         <td><%= orcamento.cli_morada %></td>
         <td><%= orcamento.cli_contacto %></td>
-        <td><%=l orcamento.created_at %></td>
+        <td><%= orcamento.created_at.strftime("%d/%m/%Y") %></td>
         <% if user_signed_in? %>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
