@@ -41,6 +41,7 @@ class OrcamentosController < ApplicationController
   # POST /orcamentos.json
   def create
     @orcamento = current_user.orcamentos.new(params[:orcamento])
+    @orcamento.estado = 1
     respond_to do |format|
       if @orcamento.save
         format.html { redirect_to @orcamento, notice: 'Orcamento was successfully created.' }
