@@ -1,10 +1,12 @@
 Orca::Application.routes.draw do
+  get "perfil/show"
+
   devise_for :users
 
   resources :orcamentos
   root :to => "orcamentos#index"
 
-
+  get '/:id', to: 'perfil#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

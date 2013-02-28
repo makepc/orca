@@ -1,0 +1,51 @@
+<h1>Meus orçamentos</h1>
+
+
+<table class="table table-striped">
+  <tbody>
+  	<thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>Local</th>
+	      <th>Descrição</th>
+	      <th>Distância</th>
+	      <th>Cliente</th>
+	      <th>Morada</th>
+	      <th>Contacto</th>
+	      <th>Data</th>
+	      <% if user_signed_in? %>
+	        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+	      <% end %>  
+	    </tr>
+	  </thead>
+    <% @orcamentos.each do |orcamento| %>
+      <tr>
+        <td><%= link_to orcamento.id, orcamento_path(orcamento) %></td>
+        <td><%= orcamento.local %></td>
+        <td><%= orcamento.descricao %></td>
+        <td><%= orcamento.distancia %></td>
+        <td><%= orcamento.cli_nome %></td>
+        <td><%= orcamento.cli_morada %></td>
+        <td><%= orcamento.cli_contacto %></td>
+        <td><%=l orcamento.created_at %></td>
+        <% if user_signed_in? %>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_orcamento_path(orcamento), :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        orcamento_path(orcamento),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-mini btn-danger' %>
+          </td>
+        <% end %>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if user_signed_in? %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_orcamento_path,
+              :class => 'btn btn-primary' %>
+
+<% end %>
